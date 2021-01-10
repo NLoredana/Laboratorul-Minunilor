@@ -1,0 +1,9 @@
+public void Timer() {
+    // Ceasul de pe perete foloseste codul de mai jos, ce ruleaza concomitent cu "myFirstMethod"
+   // Textul de pe perete ia valoarea proprietatii create in sectiunea "scene" care este setata initial "0" iar structura "while" se asigura ca valoarea sa se schimbe continuu
+   this.setTimer( 0 );
+   while ( true ) {
+       this.textModel.setValue( "Timp : " + this.timer );
+       // Codul are un "delay" echivalent cu valoarea cu care creste proprietatea "time" de fiecare data cand structura "while" este citita de catre calculator.
+       this.delay( 1.0 );
+       this.setTimer( this.timer+1 );
