@@ -1,0 +1,61 @@
+private void initializeEventListeners() {
+   this.addSceneActivationListener( ( SceneActivationEvent event ) -> {
+       doTogether( () -> {
+            this.myFirstMethod();        
+       }, () -> {
+           this.Timer();   
+       } );
+   } );
+   this.addKeyPressListener( ( KeyEvent event ) -> {
+        // Codul se ocupa cu mutarea perspectivei la actiunea tastelor "E" si "C". Tasta "C" este folosita drept un test pentru programator si nu este folosita de catre jucator
+         if( event.isKey( Key.C ) ) { 
+             this.camera.moveAndOrientTo( this.camera2 );
+             this.camera.setVehicle( this );
+         } else {
+              if( event.isKey( Key.E ) ) {
+                  this.camera.moveAndOrientTo( this.elev.getHead() );
+                  this.laborant.say( "Foloseste sagetile de pe tastatura pentru a te deplasa.", Say.duration( 2.5 ) );
+                   this.laborant.delay( 10.0 );
+                    this.laborant.say( "Cred ca ar trebui sa incepi cu tabelul periodic. Apasa \"T\" de la tabel!", Say.duration( 3.0 ) );
+                } else {
+                }
+           }
+     } );
+      this.addObjectMoverFor( this.elev );
+      this.addArrowKeyPressListener( ( ArrowKeyEvent event ) -> {
+      // Acest cod se ocupa cu deplasarea personajului cu ajutorul tastelor.
+       if( event.isKey( Key.UP ) ) {
+       this.elev.move( MoveDirection.FORWARD, 0.001, Move.duration( 0.15 ) );         
+       } else {
+        if( event.isKey( Key.DOWN ) ) {
+            this.elev.move( MoveDirection.BACKWARD, 0.001, Move.duration( 0.15 ) );
+        } else {
+             if( event.isKey( Key.LEFT ) ) {
+                 this.elev.move( MoveDirection.LEFT, 0.001, Move.duration( 0.15 ) );
+              } else {
+                   if( event.isKey( Key.RIGHT ) ) {
+                       this.elev.move( MoveDirection.RIGHT, 0.001, Move.duration( 0.15 ) );
+                     } else {
+                     }
+               }
+         }
+     }
+  });  
+   this.addKeyPressListener( ( KeyEvent event ) -> {
+        if( event.isKey( Key.T ) ) {
+             this.quiz();
+         } else {
+         }
+      });
+   this.addKeyPressListener( ( KeyEvent event ) -> {
+        if( event.isKey( Key.P ) ) {
+            this.proprietati();
+        } else {
+        }
+     });
+   this.addKeyPressListener( ( KeyEvent event ) -> {
+        if( event.isKey( Key.R ) ) {
+            this.Reactii();
+        } else {
+        }
+     });
