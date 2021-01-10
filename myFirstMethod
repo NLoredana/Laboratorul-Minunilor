@@ -1,0 +1,22 @@
+public void myFirstMethod() {
+     this.Scor.setValue( "Scor : " + this.scor );
+     this.laborant.delay( 2.0 );
+     this.laborant.say( "Buna ! Bine ai venit in Laboratorul Minunilor ! ", Say.duration( 2.0 ) );
+     this.laborant.say( "Aici vei descoperi magia Tabelului Periodic, a elementelor si a solutiilor. ", Say.duration( 3.0 ) );
+     this.laborant.say( "Dar mai intai, trebuie sa cunosti regulile laboratorului. ", Say.duration( 2.5 ) );
+     this.elev.say( "Suna minunat!", Say.duration( 2.0 ) );
+     if( true ) {  
+         // Camera se orienteaza spre afisul de pe perete.
+         this.camera.turnToFace( this.reguli );
+         this.reguli.moveToward( this.camera, 1.6 );
+      } else {
+      }
+      this.reguli.delay( 15.0 );
+      this.reguli.moveAwayFrom( this.camera, 1.6 );
+      this.elev.say( "Am inteles! Acum hai la treaba!", Say.duration( 2.0 ) );
+      this.laborant.say( "Ok! Acum apasa \"E\".", Say.duration( 2.0 ) );
+      while ( true ) {
+         // Laborantul urmareste ce face elevul printr-un co de tipul "while" mereu adevarat
+         this.laborant.turnToFace( this.elev );
+      }
+}
